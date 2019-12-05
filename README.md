@@ -1,32 +1,17 @@
 # CS411-Project
 CAS CS411 Final Project
 
-PyMongo - official Python driver for MongoDB
-  - Documentation: https://api.mongodb.com/python/current/
-  
-Create client: 
-  - client = MongoClient()
-  
-Access Database 'db': 
-  - database = client.db
+database.py - driver code to access database
 
-Get collection 'cl':
-  - collection = database.cl
-  
-Documents = python dictionaries
+requirements: pymongo python module
 
-Insert Document:
-  - collection.insert_one()
-  
-Get single document:
-  - collection.find_one()
-    - get first document in collection
-  - collection.find_one(key:value)
-    - find document with matching key:value pair
-    
-Insert multiple documents:
-  - insert_many(list)
-  
-Find many:
-  - collection.find()
-    - returns iterable of matching documents
+Functions:
+
+init_db(): initializes database
+
+init_user(username): creates a new user entry with given username and an empty playlist entry
+
+input_playlist(username, playlist_name, playlist): adds playlist to user's list of playlists
+ - playlist: array of [song name, link, artist name]
+ 
+ youtube_query_songs(username, playlist_name): returns a list of strings formatted for youtube api queries - song name concatenated to artist name
