@@ -1,14 +1,19 @@
 import json
 from pymongo import MongoClient
+import subprocess
 
 #global reference to db collection
 USERS = None
 client = None
 
+
 def init_db():
   """ initialize db connection and populate USERS with collection reference"""
   global USERS
   global client
+
+  command = 'mongod'
+  subprocess.Popen([command])
 
   client = MongoClient('localhost')
   USERS = client.db.cl
